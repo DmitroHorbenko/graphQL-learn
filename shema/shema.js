@@ -1,9 +1,9 @@
-const graphql = require("graphql");
+const graphql = require('graphql');
 
 const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
 
 const MovieType = new GraphQLObjectType({
-  name: "Movie",
+  name: 'Movie',
   fields: () => ({
     id: { type: GraphQLString },
     name: { type: GraphQLString },
@@ -12,13 +12,15 @@ const MovieType = new GraphQLObjectType({
 });
 
 const Query = new GraphQLObjectType({
-  name: "Query",
-  movie: {
-    type: MovieType,
-    arqs: { id: { type: GraphQLString }},
-    resolve( parent, arqs ) {
-
-    }
+  name: 'Query',
+  fields: {
+    movie: {
+      type: MovieType,
+      arqs: { id: { type: GraphQLString }},
+      resolve( parent, arqs ) {
+  
+      }
+    },
   }
 });
 
